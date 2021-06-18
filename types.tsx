@@ -9,12 +9,14 @@ export type RootStackParamList = {
 };
 
 export type BottomTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
+  Home: undefined;
+  Saved: undefined;
 };
 
 export type TabOneParamList = {
   TabOneScreen: undefined;
+  Camera: undefined;
+  Gallery: undefined;
 };
 
 export type TabTwoParamList = {

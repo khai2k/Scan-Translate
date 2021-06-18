@@ -1,32 +1,25 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
-
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-
+import { ScrollView } from 'react-native'
+import WordLine from '../components/WordLine';
+const wordHistory = [
+  {
+    word: 'Bottle',
+    translate: 'Chai',
+    star: true
+  },
+  {
+    word: 'hello',
+    translate: 'xin chao',
+    star: false
+  }
+]
 export default function TabTwoScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
-    </View>
+    <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>
+      {wordHistory.map((data, index) => {
+        return <WordLine key={index} data={data} />
+      })}
+    </ScrollView>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});

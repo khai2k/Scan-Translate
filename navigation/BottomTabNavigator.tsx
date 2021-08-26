@@ -7,7 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
-
+import { AntDesign } from '@expo/vector-icons'; 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import TabOneScreen from '../screens/TabOneScreen';
@@ -29,14 +29,14 @@ export default function BottomTabNavigator() {
         name="Home"
         component={TabOneNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) =><AntDesign name="home" size={24} color={color} />,
         }}
       />
       <BottomTab.Screen
         name="Saved"
         component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <AntDesign name="star" size={24} color={color}  />,
         }}
       />
     </BottomTab.Navigator>
@@ -59,17 +59,26 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="TabOneScreen"
         component={TabOneScreen}
-        options={{ headerTitle: 'Home' }}
+        options={{ headerTitle: 'Home' ,
+        headerStyle: {
+          backgroundColor: "#1a73e8"
+        },
+        headerTitleStyle: {
+          fontWeight: "bold",
+          color: 'white',
+        }}}
       />
       <TabOneStack.Screen
         name="Camera"
         component={Camera}
-        options={{ headerTitle: 'Camera' }}
+        options={{ headerTitle: 'Camera' 
+       }}
       />
       <TabOneStack.Screen
         name="Gallery"
         component={Gallery}
-        options={{ headerTitle: 'Gallery' }}
+        options={{ headerTitle: 'Gallery'
+       }}
       />
     </TabOneStack.Navigator>
   );
@@ -83,7 +92,14 @@ function TabTwoNavigator() {
       <TabTwoStack.Screen
         name="TabTwoScreen"
         component={TabTwoScreen}
-        options={{ headerTitle: 'Saved' }}
+        options={{ headerTitle: 'Saved' , 
+        headerStyle: {
+          backgroundColor: "#1a73e8"
+        },
+        headerTitleStyle: {
+          fontWeight: "bold",
+          color: 'white',
+        }}}
       />
     </TabTwoStack.Navigator>
   );

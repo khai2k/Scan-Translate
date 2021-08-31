@@ -99,8 +99,15 @@ export default function TabOneScreen(props) {
 
       try {
         let url = `${translateApi}?q=${input}&langpair=${langpair}`;
+        let url_encode = encodeURI(url);
+        console.log(url_encode);
 
-        let { data } = await axios.get(url);
+        let { data } = await axios.get(url_encode);
+        console.log(
+          "🚀 ~ file: TabOneScreen.js ~ line 108 ~ fetchData ~ data",
+          data.responseData.translatedText
+        );
+
         let translateWord = data.responseData.translatedText;
         setOutput(translateWord);
         storeData([
@@ -108,7 +115,8 @@ export default function TabOneScreen(props) {
           ...wordHistory,
         ]);
       } catch (error) {
-        setOutput("No internet Or word not found");
+        console.log(error, "===========================");
+        setOutput("cảm ơn vì đã lắng nghe");
       }
     };
 
